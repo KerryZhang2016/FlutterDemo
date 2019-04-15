@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/common/style/dimen/CustomDimen.dart';
 
 /// 首页底部栏Tab
 class HomeTabWidget extends StatelessWidget {
@@ -17,14 +18,14 @@ class HomeTabWidget extends StatelessWidget {
       children: <Widget>[
         Image(
           image: AssetImage(icon),
-          width: 20.0,
-          height: 20.0,
+          width: 19.0,
+          height: 19.0,
         ),
         Container(
           margin: EdgeInsets.only(top: 3.0),
           child: Text(text, style: TextStyle(
             color: textColor,
-            fontSize: 11.0
+            fontSize: CustomDimen.text_size_tiny
           )),
         )
       ],

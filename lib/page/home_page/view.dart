@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/widget/TopAreaWidget.dart';
 
 import 'state.dart';
@@ -23,7 +24,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
               color: Colors.white,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: const Color(0xFFd0d0d0),
+                  color: const Color(CustomColor.home_tab_shadow),
                   blurRadius: 3.0,
                   spreadRadius: 2.0,
                   offset: Offset(-1.0, -1.0),

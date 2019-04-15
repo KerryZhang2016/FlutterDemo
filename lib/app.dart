@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/services.dart';
-import 'package:test_app/home_page/page.dart';
+import 'package:test_app/page/home_page/page.dart';
 
 Widget createApp() {
   final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
