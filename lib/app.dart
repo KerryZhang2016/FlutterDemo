@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/services.dart';
 import 'package:test_app/home_page/page.dart';
 
 Widget createApp() {
@@ -11,6 +12,11 @@ Widget createApp() {
       },
     ),
   ]);
+
+  // set status bar color
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+  ));
 
   return MaterialApp(
     title: "Test",

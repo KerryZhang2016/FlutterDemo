@@ -4,14 +4,24 @@ import 'package:test_app/home_discover_page/state.dart';
 import 'package:test_app/home_market_page/state.dart';
 import 'package:test_app/home_trade_page/state.dart';
 import 'package:test_app/home_user_page/state.dart';
+import 'package:test_app/widget/HomeTabWidget.dart';
 
 class HomeState implements Cloneable<HomeState> {
 
+  static Color selectTextColorconst = Color(0xFF212327);
+  static Color normalTextColorconst = Color(0xFF88889C);
+
   final List<Widget> tabs = [
-    Tab(text: "行情", icon: Icon(Icons.data_usage)),
-    Tab(text: "发现", icon: Icon(Icons.find_in_page)),
-    Tab(text: "交易", icon: Icon(Icons.business)),
-    Tab(text: "我的", icon: Icon(Icons.supervised_user_circle)),
+    HomeTabWidget(text: "Markets", textColor: normalTextColorconst, icon: "assets/images/ic_home_tabbar_markets.png"),
+    HomeTabWidget(text: "Discover", textColor: normalTextColorconst, icon: "assets/images/ic_home_tabbar_discovery.png"),
+    HomeTabWidget(text: "Trade", textColor: normalTextColorconst, icon: "assets/images/ic_home_tabbar_trade.png"),
+    HomeTabWidget(text: "Me", textColor: normalTextColorconst, icon: "assets/images/ic_home_tabbar_me.png"),
+  ];
+  final List<Widget> selectTabs = [
+    HomeTabWidget(text: "Markets", textColor: selectTextColorconst, icon: "assets/images/ic_home_tabbar_markets_select.png"),
+    HomeTabWidget(text: "Discover", textColor: selectTextColorconst, icon: "assets/images/ic_home_tabbar_discovery_select.png"),
+    HomeTabWidget(text: "Trade", textColor: selectTextColorconst, icon: "assets/images/ic_home_tabbar_trade_select.png"),
+    HomeTabWidget(text: "Me", textColor: selectTextColorconst, icon: "assets/images/ic_home_tabbar_me_select.png"),
   ];
 
   int selectedIndex = 0;
