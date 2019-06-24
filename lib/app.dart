@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/services.dart';
 import 'package:test_app/page/home_page/page.dart';
+import 'package:test_app/http/http.dart';
 
 Widget createApp() {
   final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
@@ -17,6 +18,8 @@ Widget createApp() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: Colors.white,
   ));
+  // init dio
+  initDio();
 
   return MaterialApp(
     title: "Test",

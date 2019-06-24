@@ -2,14 +2,13 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
-import 'package:test_app/widget/TopAreaWidget.dart';
 
 import 'state.dart';
 
 Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
 
   return Scaffold(
-    body: TopAreaWidget(child: TabBarView(controller: state.tabController, children: <Widget>[
+    body: SafeArea(child: TabBarView(controller: state.tabController, children: <Widget>[
       viewService.buildComponent("market"),
       viewService.buildComponent("discover"),
       viewService.buildComponent("trade"),

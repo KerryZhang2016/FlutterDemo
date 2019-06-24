@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+/// 自定义自带状态栏padding的widget
 class TopAreaWidget extends StatelessWidget {
   final Widget child;
 
