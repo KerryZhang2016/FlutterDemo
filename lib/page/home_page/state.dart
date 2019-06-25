@@ -35,6 +35,8 @@ class HomeState implements Cloneable<HomeState> {
   int selectedIndex = 0;
   TabController tabController;
 
+  MarketState marketState;
+
   @override
   HomeState clone() {
     return HomeState()
@@ -45,18 +47,20 @@ class HomeState implements Cloneable<HomeState> {
 
 HomeState initState(Map<String, dynamic> args) {
   return HomeState()
-    ..selectedIndex = 0;
+    ..selectedIndex = 0
+    ..marketState = initMarketState(null);
 }
 
 class MarketConnector extends ConnOp<HomeState, MarketState> {
   @override
   MarketState get(HomeState state) {
-    final MarketState marketState = MarketState();
-    return marketState;
+    return state.marketState;
   }
 
   @override
-  void set(HomeState state, MarketState subState) {}
+  void set(HomeState state, MarketState subState) {
+    state.marketState = subState;
+  }
 }
 
 class DiscoverConnector extends ConnOp<HomeState, DiscoverState> {

@@ -1,13 +1,16 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:test_app/http/model/Watchlist.dart';
 
 class MarketState implements Cloneable<MarketState> {
 
+  List<WatchlistItem> items;
+
   @override
   MarketState clone() {
-    return MarketState();
+    return MarketState()..items = items;
   }
 }
 
-MarketState initState(Map<String, dynamic> args) {
-  return MarketState();
+MarketState initMarketState(String args) {
+  return MarketState()..items = [];
 }

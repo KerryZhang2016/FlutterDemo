@@ -5,10 +5,10 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class MarketPage extends Page<MarketState, Map<String, dynamic>> {
+class MarketPage extends Page<MarketState, String> {
   MarketPage()
       : super(
-            initState: initState,
+            initState: initMarketState,
             effect: buildEffect(),
             reducer: buildReducer(),
             view: buildView,

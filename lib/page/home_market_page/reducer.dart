@@ -4,14 +4,11 @@ import 'action.dart';
 import 'state.dart';
 
 Reducer<MarketState> buildReducer() {
-  return asReducer(
-    <Object, Reducer<MarketState>>{
-      MarketAction.action: _onAction,
-    },
-  );
+  return asReducer({
+    MarketAction.refreshWatchlist: _refreshWatchlist,
+  });
 }
 
-MarketState _onAction(MarketState state, Action action) {
-  final MarketState newState = state.clone();
-  return newState;
+MarketState _refreshWatchlist(MarketState state, Action action) {
+  return state.clone()..items = action.payload;
 }

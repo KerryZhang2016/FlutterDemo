@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:test_app/http/model/Watchlist.dart';
 
-//TODO replace with your own action
-enum MarketAction { action }
+enum MarketAction { refreshWatchlist }
 
 class MarketActionCreator {
-  static Action onAction() {
-    return const Action(MarketAction.action);
+  static Action refreshWatchlist(List<WatchlistItem> payload) {
+    return Action(MarketAction.refreshWatchlist, payload: payload);
   }
 }

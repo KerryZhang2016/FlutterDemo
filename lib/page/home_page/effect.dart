@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'action.dart';
 import 'state.dart';
 
-/// 接收生命周期回调
 Effect<HomeState> buildEffect() {
   return combineEffects(<Object, Effect<HomeState>>{
     Lifecycle.initState: _init,

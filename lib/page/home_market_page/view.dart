@@ -5,7 +5,11 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(MarketState state, Dispatch dispatch, ViewService viewService) {
-  return Container(
-    child: Text("Market"),
-  );
+  return new ListView.builder(
+      itemCount: state.items.length,
+      itemBuilder: (context, index) {
+        return new ListTile(
+          title: new Text('${state.items[index].nameCN}'),
+        );
+      });
 }
