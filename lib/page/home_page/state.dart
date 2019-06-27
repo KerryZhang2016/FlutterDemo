@@ -41,7 +41,8 @@ class HomeState implements Cloneable<HomeState> {
   HomeState clone() {
     return HomeState()
       ..selectedIndex = selectedIndex
-      ..tabController = tabController;
+      ..tabController = tabController
+      ..marketState = marketState;
   }
 }
 

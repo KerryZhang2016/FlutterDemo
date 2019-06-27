@@ -26,7 +26,7 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
                   'user': UserConnector() + UserPage(),
                 }),
             middleware: <Middleware<HomeState>>[
-              logMiddleware(tag: 'HomePage'),
+//              logMiddleware(tag: 'HomePage'),
             ],);
 
   @override

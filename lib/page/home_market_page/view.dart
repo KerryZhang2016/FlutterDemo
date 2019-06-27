@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'state.dart';
 
 Widget buildView(MarketState state, Dispatch dispatch, ViewService viewService) {
-  println("Market Page buildView ${state.items}");
   return new ListView.builder(
       itemCount: state.items.length,
       itemBuilder: (context, index) {

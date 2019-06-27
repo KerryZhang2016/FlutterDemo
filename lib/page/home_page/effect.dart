@@ -13,10 +13,8 @@ Effect<HomeState> buildEffect() {
 void _init(Action action, Context<HomeState> ctx) {
   final TickerProvider tickerProvider = ctx.stfState as TickerProvider;
   ctx.state.tabController = TabController(initialIndex: 0, vsync: tickerProvider, length: 4);
-
-  final controller = ctx.state.tabController;
-  controller.addListener(() {
-    ctx.dispatch(HomeActionCreator.indexChange(controller.index));
+  ctx.state.tabController.addListener(() {
+    ctx.dispatch(HomeActionCreator.indexChange(ctx.state.tabController.index));
   });
 }
 
