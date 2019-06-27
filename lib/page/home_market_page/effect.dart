@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:dio/dio.dart';
+import 'package:test_app/common/lifecycle/app_lifecycle.dart';
 import 'package:test_app/http/http.dart';
 import 'package:test_app/http/model/Watchlist.dart';
 import 'action.dart';
@@ -14,10 +15,12 @@ Effect<MarketState> buildEffect() {
     Lifecycle.deactivate: _deactivate,
     Lifecycle.disappear: _disappear,
     Lifecycle.dispose: _dispose,
+    AppLifecycle.state: _onAppLifecycle,
   });
 }
 
 void _initState(Action action, Context<MarketState> ctx) async {
+  subscribleAppStateChange(ctx);
   try {
     Response response = await dio.get(watchlistPath,
         queryParameters: {"group": "0", "market": "US", "lite": false});
@@ -48,5 +51,9 @@ void _disappear(Action action, Context<MarketState> ctx) {
 
 void _dispose(Action action, Context<MarketState> ctx) {
   println("Market Page _dispose");
+}
+
+void _onAppLifecycle(Action action, Context<Object> ctx) {
+  println("Market Page _onAppLifecycle ${action.payload}");
 }
 

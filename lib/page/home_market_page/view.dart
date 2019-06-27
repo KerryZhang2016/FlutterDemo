@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 
-import 'action.dart';
 import 'state.dart';
 
 Widget buildView(MarketState state, Dispatch dispatch, ViewService viewService) {
+  println("Market Page buildView ${state.items}");
   return new ListView.builder(
       itemCount: state.items.length,
       itemBuilder: (context, index) {

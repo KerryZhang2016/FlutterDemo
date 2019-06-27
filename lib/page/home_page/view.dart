@@ -8,12 +8,12 @@ import 'state.dart';
 Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
 
   return Scaffold(
-    body: SafeArea(child: TabBarView(controller: state.tabController, children: <Widget>[
+    body: SafeArea(child: IndexedStack(index: state.selectedIndex, children: <Widget>[
       viewService.buildComponent("market"),
       viewService.buildComponent("discover"),
       viewService.buildComponent("trade"),
       viewService.buildComponent("user"),
-    ], physics: NeverScrollableScrollPhysics())),
+    ])),
     bottomNavigationBar: Material(
       color: Colors.white,
       child: SafeArea(
