@@ -13,13 +13,10 @@ Effect<MarketState> buildEffect() {
     Lifecycle.initState: _initState,
     Lifecycle.didChangeDependencies: _didChangeDependencies,
     Lifecycle.build: _build,
-
     Lifecycle.reassemble: _reassemble,
-
     Lifecycle.didUpdateWidget: _didUpdateWidget,
     Lifecycle.deactivate: _deactivate,
     Lifecycle.dispose: _dispose,
-
     AppLifecycle.state: _onAppLifecycle,
   });
 }
@@ -66,4 +63,3 @@ void _dispose(Action action, Context<MarketState> ctx) {
 void _onAppLifecycle(Action action, Context<Object> ctx) {
   loggerLevelW("Market Page _onAppLifecycle ${action.payload}");
 }
-
