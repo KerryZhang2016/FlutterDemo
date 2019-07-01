@@ -5,6 +5,7 @@ import 'package:test_app/page/home_market_page/page.dart';
 import 'package:test_app/page/home_trade_page/page.dart';
 import 'package:test_app/page/home_user_page/page.dart';
 
+import 'components/bottom_navigation_bar/component.dart';
 import 'effect.dart';
 import 'reducer.dart';
 import 'state.dart';
@@ -20,6 +21,7 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
             dependencies: Dependencies<HomeState>(
                 adapter: null,
                 slots: <String, Dependent<HomeState>>{
+                  'customBottomNavigationBar': CustomBottomNavigationBarConnector() + CustomBottomNavigationBarComponent(),
                   'market': MarketConnector() + MarketPage(),
                   'discover': DiscoverConnector() + DiscoverPage(),
                   'trade': TradeConnector() + TradePage(),
