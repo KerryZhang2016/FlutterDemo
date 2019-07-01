@@ -12,7 +12,7 @@ Widget buildView(CustomBottomNavigationBarState state, Dispatch dispatch,
     ViewService viewService) {
   return SafeArea(
     child: SizedBox(
-      height: 50.0,
+      height: 46.0,
       child: Card(
         color: Platform.isIOS ? Colors.transparent : Colors.white,
         elevation: Platform.isIOS ? 0.0 : 8.0,

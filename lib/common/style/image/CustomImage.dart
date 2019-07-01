@@ -9,4 +9,6 @@ class CustomImage {
   static const String home_tab_discover_select = 'assets/images/ic_home_tabbar_discover_select.png';
   static const String home_tab_trade_select = 'assets/images/ic_home_tabbar_trade_select.png';
   static const String home_tab_me_select = 'assets/images/ic_home_tabbar_me_select.png';
+
+  static const String region_us = 'assets/images/ic_region_us.png';
 }

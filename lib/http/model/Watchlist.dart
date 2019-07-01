@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:json_annotation/json_annotation.dart';
+import 'package:test_app/common/style/color/CustomColor.dart';
+import 'package:test_app/utils/num_util.dart';
 
 part 'Watchlist.g.dart';
 
@@ -50,6 +54,24 @@ class WatchlistItem {
       this.auction,
       this.timestamp,
       this.hourTrading);
+
+  String getChgText() {
+    var ratio = latestPrice / preClose - 1;
+    var ratioText = NumUtil.formatNum(ratio * 100, 2).toString() + "%";
+    if (ratio >= 0) {
+      return "+" + ratioText;
+    } else {
+      return ratioText;
+    }
+  }
+
+  Color getChgColor() {
+    if (NumUtil.greaterOrEqual(latestPrice, preClose)) {
+      return Color(CustomColor.market_green_color);
+    } else {
+      return Color(CustomColor.market_red_color);
+    }
+  }
 
   @override
   String toString() {
