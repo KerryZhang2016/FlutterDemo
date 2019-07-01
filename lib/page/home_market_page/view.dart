@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/common/style/dimen/CustomDimen.dart';
 import 'package:test_app/common/style/image/CustomImage.dart';
+import 'package:test_app/widget/TapBox.dart';
 
 import 'state.dart';
 
@@ -30,7 +31,8 @@ Widget buildView(
             child: ListView.builder(
                 itemCount: state.items.length,
                 itemBuilder: (context, index) {
-                  return _buildMarketListItem(state, dispatch, index);
+                  return TapBox(
+                      child: _buildMarketListItem(state, dispatch, index));
                 }),
           ),
         )
@@ -42,7 +44,6 @@ Widget buildView(
 Widget _buildMarketListItem(MarketState state, Dispatch dispatch, int index) {
   return Container(
     height: 58.0,
-    color: Colors.white,
     child: Row(
       children: <Widget>[
         Container(

@@ -10,4 +10,6 @@ class CustomColor {
   static const int market_green_color = 0xFF009B2C;
   static const int market_red_color = 0xFFFF3A42;
 
+  static const int item_normal_bg_color = 0xFFFFFFFF;
+  static const int item_pressed_bg_color = 0xFFF7F7FA;
 }
