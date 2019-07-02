@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:test_app/app.dart';
 
-void main() => runApp(createApp());
+import 'utils/autosize/auto_size.dart';
+
+void main() => runAutoSizeApp(createApp());
