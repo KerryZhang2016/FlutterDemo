@@ -10,5 +10,6 @@ Reducer<MarketState> buildReducer() {
 }
 
 MarketState _refreshWatchlist(MarketState state, Action action) {
-  return state.clone()..items = action.payload;
+  return state.clone()
+    ..items = action.payload;
 }

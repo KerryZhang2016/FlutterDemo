@@ -6,7 +6,7 @@ import 'package:test_app/page/home_market_page/state.dart';
 import 'package:test_app/page/home_trade_page/state.dart';
 import 'package:test_app/page/home_user_page/state.dart';
 
-import 'components/bottom_navigation_bar/state.dart';
+import 'package:test_app/page/home_page/bottom_navigation_component/state.dart';
 
 class HomeState implements Cloneable<HomeState> {
   CustomBottomNavigationBarState customBottomNavigationBarState;

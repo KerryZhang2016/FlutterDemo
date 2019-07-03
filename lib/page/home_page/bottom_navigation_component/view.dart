@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/common/style/dimen/CustomDimen.dart';
 
-import 'action.dart';
-import 'state.dart';
+import 'package:test_app/page/home_page/bottom_navigation_component/action.dart';
+import 'package:test_app/page/home_page/bottom_navigation_component/state.dart';
 
 Widget buildView(CustomBottomNavigationBarState state, Dispatch dispatch,
     ViewService viewService) {

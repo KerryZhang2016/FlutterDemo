@@ -7,10 +7,12 @@ class MarketState implements Cloneable<MarketState> {
 
   @override
   MarketState clone() {
-    return MarketState()..items = items;
+    return MarketState()
+      ..items = items;
   }
 }
 
 MarketState initMarketState(String args) {
-  return MarketState()..items = [];
+  return MarketState()
+    ..items = [];
 }

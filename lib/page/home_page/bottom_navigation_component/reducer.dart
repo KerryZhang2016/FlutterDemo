@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
-import 'action.dart';
-import 'state.dart';
+import 'package:test_app/page/home_page/bottom_navigation_component/action.dart';
+import 'package:test_app/page/home_page/bottom_navigation_component/state.dart';
 
 Reducer<CustomBottomNavigationBarState> buildReducer() {
   return asReducer(
