@@ -19,17 +19,33 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
     child: Row(
       children: <Widget>[
         Container(
+          width: 15,
           alignment: Alignment.topLeft,
-          padding: EdgeInsets.only(left: 4, top: 15),
-          child: Image(
-            image: AssetImage(CustomImage.region_us),
-            width: 15.0,
-            height: 10.0,
-          ),
+          padding: EdgeInsets.only(left: 2),
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 15,
+                child: Image(
+                  image: AssetImage(CustomImage.region_us),
+                  width: 13.0,
+                  height: 10.0,
+                ),
+              ),
+              Positioned(
+                top: 35,
+                child: Image(
+                  image: AssetImage(item.getHourTradingIcon()),
+                  width: 13.0,
+                  height: 10.0,
+                ),
+              ),
+            ],
+          )
         ),
         Container(
             alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(left: 5),
+            padding: EdgeInsets.only(left: 4),
             width: 150,
             child: Stack(
               children: <Widget>[
@@ -78,11 +94,11 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
                   right: 14,
                   top: 33,
                   child: Text(
-                    "",
+                    item.getHourTradingChangeRatioText(),
                     maxLines: 1,
                     style: TextStyle(
                         fontFamily: 'Roboto',
-                        color: Color(CustomColor.main_text_color),
+                        color: Color(CustomColor.secondary_text_color),
                         fontSize: CustomDimen.text_size_micro),
                   )),
               Positioned(
@@ -101,11 +117,11 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
                   right: 123,
                   top: 33,
                   child: Text(
-                    "",
+                    item.getHourTradingPriceText(),
                     maxLines: 1,
                     style: TextStyle(
                         fontFamily: 'Roboto',
-                        color: Color(CustomColor.main_text_color),
+                        color: Color(CustomColor.secondary_text_color),
                         fontSize: CustomDimen.text_size_micro),
                   )),
             ],

@@ -11,4 +11,6 @@ class CustomImage {
   static const String home_tab_me_select = 'assets/images/ic_home_tabbar_me_select.png';
 
   static const String region_us = 'assets/images/ic_region_us.png';
+  static const String market_pre = 'assets/images/ic_markets_pre.png';
+  static const String market_after = 'assets/images/ic_markets_after.png';
 }
