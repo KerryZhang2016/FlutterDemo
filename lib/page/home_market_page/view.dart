@@ -1,13 +1,18 @@
+import 'dart:async';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/common/style/dimen/CustomDimen.dart';
 
+import 'action.dart';
 import 'state.dart';
 
 Widget buildView(
     MarketState state, Dispatch dispatch, ViewService viewService) {
   final ListAdapter adapter = viewService.buildAdapter();
+  final Completer<void> completer = Completer<void>();
+
   return Container(
     child: Column(
       children: <Widget>[
@@ -26,11 +31,19 @@ Widget buildView(
           ),
         ),
         Expanded(
-          child: Container(
-            child: ListView.builder(
-                itemBuilder: adapter.itemBuilder,
-                itemCount: adapter.itemCount),
-          ),
+          child: RefreshIndicator(
+            onRefresh: () async {
+              dispatch(MarketActionCreator.onRefresh(() {
+                completer.complete();
+              }));
+              return completer.future;
+            },
+            child: Container(
+              child: ListView.builder(
+                  itemBuilder: adapter.itemBuilder,
+                  itemCount: adapter.itemCount),
+            ),
+          )
         )
       ],
     ),

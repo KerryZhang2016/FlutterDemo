@@ -17,13 +17,15 @@ Effect<MarketState> buildEffect() {
     Lifecycle.didUpdateWidget: _didUpdateWidget,
     Lifecycle.deactivate: _deactivate,
     Lifecycle.dispose: _dispose,
+
     AppLifecycle.state: _onAppLifecycle,
+
+    MarketAction.onRefreshWatchlist: _onRefreshWatchlist,
+    MarketAction.onRefresh: _onRefresh,
   });
 }
 
-void _initState(Action action, Context<MarketState> ctx) async {
-  LogUtil.loggerLevelI("Market Page _initState");
-  subscribleAppStateChange(ctx);
+void _onRefresh(Action action, Context<MarketState> ctx) async {
   try {
     Response response = await dio.get(watchlistPath,
         queryParameters: {"group": "0", "market": "US", "lite": false});
@@ -34,6 +36,26 @@ void _initState(Action action, Context<MarketState> ctx) async {
   } catch (e) {
     LogUtil.loggerLevelE(e);
   }
+  (action.payload as Function())();
+}
+
+void _onRefreshWatchlist(Action action, Context<MarketState> ctx) async {
+  try {
+    Response response = await dio.get(watchlistPath,
+        queryParameters: {"group": "0", "market": "US", "lite": false});
+    WatchlistResponse watchlistResponse =
+        WatchlistResponse.fromJson(json.decode(response.toString()));
+    LogUtil.loggerLevelD(watchlistResponse.items.toString());
+    ctx.dispatch(MarketActionCreator.refreshWatchlist(watchlistResponse.items));
+  } catch (e) {
+    LogUtil.loggerLevelE(e);
+  }
+}
+
+void _initState(Action action, Context<MarketState> ctx) async {
+  LogUtil.loggerLevelI("Market Page _initState");
+  subscribleAppStateChange(ctx);
+  ctx.dispatch(MarketActionCreator.onRefreshWatchlist());
 }
 
 void _didChangeDependencies(Action action, Context<MarketState> ctx) {
