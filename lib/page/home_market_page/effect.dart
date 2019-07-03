@@ -1,12 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:dio/dio.dart';
 import 'package:test_app/common/lifecycle/app_lifecycle.dart';
-import 'package:test_app/http/http.dart';
-import 'package:test_app/http/model/Watchlist.dart';
 import 'package:test_app/utils/log_util.dart';
-import 'action.dart';
 import 'state.dart';
-import 'dart:convert';
 
 Effect<MarketState> buildEffect() {
   return combineEffects(<Object, Effect<MarketState>>{
@@ -19,43 +14,12 @@ Effect<MarketState> buildEffect() {
     Lifecycle.dispose: _dispose,
 
     AppLifecycle.state: _onAppLifecycle,
-
-    MarketAction.onRefreshWatchlist: _onRefreshWatchlist,
-    MarketAction.onRefresh: _onRefresh,
   });
-}
-
-void _onRefresh(Action action, Context<MarketState> ctx) async {
-  try {
-    Response response = await dio.get(watchlistPath,
-        queryParameters: {"group": "0", "market": "US", "lite": false});
-    WatchlistResponse watchlistResponse =
-        WatchlistResponse.fromJson(json.decode(response.toString()));
-    LogUtil.loggerLevelD(watchlistResponse.items.toString());
-    ctx.dispatch(MarketActionCreator.refreshWatchlist(watchlistResponse.items));
-  } catch (e) {
-    LogUtil.loggerLevelE(e);
-  }
-  (action.payload as Function())();
-}
-
-void _onRefreshWatchlist(Action action, Context<MarketState> ctx) async {
-  try {
-    Response response = await dio.get(watchlistPath,
-        queryParameters: {"group": "0", "market": "US", "lite": false});
-    WatchlistResponse watchlistResponse =
-        WatchlistResponse.fromJson(json.decode(response.toString()));
-    LogUtil.loggerLevelD(watchlistResponse.items.toString());
-    ctx.dispatch(MarketActionCreator.refreshWatchlist(watchlistResponse.items));
-  } catch (e) {
-    LogUtil.loggerLevelE(e);
-  }
 }
 
 void _initState(Action action, Context<MarketState> ctx) async {
   LogUtil.loggerLevelI("Market Page _initState");
   subscribleAppStateChange(ctx);
-  ctx.dispatch(MarketActionCreator.onRefreshWatchlist());
 }
 
 void _didChangeDependencies(Action action, Context<MarketState> ctx) {

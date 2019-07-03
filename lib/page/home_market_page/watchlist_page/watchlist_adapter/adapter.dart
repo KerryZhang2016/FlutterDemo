@@ -1,12 +1,12 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:test_app/http/model/Watchlist.dart';
-import 'package:test_app/page/home_market_page/list_item_component/component.dart';
-import 'package:test_app/page/home_market_page/list_item_component/state.dart';
+import 'package:test_app/page/home_market_page/watchlist_page/watchlist_item_component/component.dart';
+import 'package:test_app/page/home_market_page/watchlist_page/watchlist_item_component/state.dart';
 
 import '../state.dart';
 import 'reducer.dart';
 
-class WatchlistListAdapter extends DynamicFlowAdapter<MarketState> {
+class WatchlistListAdapter extends DynamicFlowAdapter<WatchlistState> {
   WatchlistListAdapter()
       : super(
           pool: <String, Component<Object>>{
@@ -17,9 +17,9 @@ class WatchlistListAdapter extends DynamicFlowAdapter<MarketState> {
         );
 }
 
-class _WatchlistListConnector extends ConnOp<MarketState, List<ItemBean>> {
+class _WatchlistListConnector extends ConnOp<WatchlistState, List<ItemBean>> {
   @override
-  List<ItemBean> get(MarketState state) {
+  List<ItemBean> get(WatchlistState state) {
     if (state.items?.isNotEmpty == true) {
       return state.items
           .map<ItemBean>((WatchlistItem data) => ItemBean(
@@ -31,7 +31,7 @@ class _WatchlistListConnector extends ConnOp<MarketState, List<ItemBean>> {
   }
 
   @override
-  void set(MarketState state, List<ItemBean> items) {
+  void set(WatchlistState state, List<ItemBean> items) {
     if (items?.isNotEmpty == true) {
       state.items = List<WatchlistItem>.from(items
           .map<WatchlistItem>((ItemBean bean) =>

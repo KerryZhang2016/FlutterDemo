@@ -1,19 +1,14 @@
-import 'dart:async';
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/common/style/dimen/CustomDimen.dart';
 
-import 'action.dart';
 import 'state.dart';
 
 Widget buildView(
     MarketState state, Dispatch dispatch, ViewService viewService) {
-  final ListAdapter adapter = viewService.buildAdapter();
-  final Completer<void> completer = Completer<void>();
-
   return Container(
+    color: Colors.white,
     child: Column(
       children: <Widget>[
         Container(
@@ -21,7 +16,7 @@ Widget buildView(
           color: Colors.white,
           child: Center(
             child: Text(
-              'Watchlist',
+              'Markets',
               style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Color(CustomColor.main_text_color),
@@ -31,19 +26,13 @@ Widget buildView(
           ),
         ),
         Expanded(
-          child: RefreshIndicator(
-            onRefresh: () async {
-              dispatch(MarketActionCreator.onRefresh(() {
-                completer.complete();
-              }));
-              return completer.future;
-            },
-            child: Container(
-              child: ListView.builder(
-                  itemBuilder: adapter.itemBuilder,
-                  itemCount: adapter.itemCount),
-            ),
-          )
+          child: PageView(
+            controller: state.pageController,
+            children: <Widget>[
+              viewService.buildComponent("Watchlist"),
+              viewService.buildComponent("USMarket"),
+            ],
+          ),
         )
       ],
     ),
