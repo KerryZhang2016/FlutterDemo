@@ -65,9 +65,9 @@ Widget _buildBottomItem(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Image(
-            image: AssetImage(state.currentIndex == index
+            image: state.currentIndex == index
                 ? state.tabIconSelectList[index]
-                : state.tabIconList[index]),
+                : state.tabIconList[index],
             width: 19.0,
             height: 19.0,
           ),

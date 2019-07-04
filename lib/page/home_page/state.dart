@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/widgets.dart';
 import 'package:test_app/common/style/image/CustomImage.dart';
 import 'package:test_app/common/style/text/CustomText.dart';
 import 'package:test_app/page/home_discover_page/state.dart';
@@ -30,16 +31,16 @@ HomeState initState(Map<String, dynamic> args) {
     CustomText.home_me
   ];
   var tabIconList = [
-    CustomImage.home_tab_markets,
-    CustomImage.home_tab_discover,
-    CustomImage.home_tab_trade,
-    CustomImage.home_tab_me
+    AssetImage(CustomImage.home_tab_markets),
+    AssetImage(CustomImage.home_tab_discover),
+    AssetImage(CustomImage.home_tab_trade),
+    AssetImage(CustomImage.home_tab_me)
   ];
   var tabIconSelectList = [
-    CustomImage.home_tab_markets_select,
-    CustomImage.home_tab_discover_select,
-    CustomImage.home_tab_trade_select,
-    CustomImage.home_tab_me_select
+    AssetImage(CustomImage.home_tab_markets_select),
+    AssetImage(CustomImage.home_tab_discover_select),
+    AssetImage(CustomImage.home_tab_trade_select),
+    AssetImage(CustomImage.home_tab_me_select)
   ];
 
   return HomeState()
