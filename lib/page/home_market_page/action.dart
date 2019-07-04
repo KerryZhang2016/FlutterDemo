@@ -1,5 +1,9 @@
+import 'package:fish_redux/fish_redux.dart';
 
-enum MarketAction { action }
+enum MarketAction { pageIndexChange }
 
 class MarketActionCreator {
+  static Action pageIndexChange(int index) {
+    return Action(MarketAction.pageIndexChange, payload: index);
+  }
 }

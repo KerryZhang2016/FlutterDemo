@@ -58,7 +58,7 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
                         fontFamily: 'Roboto',
                         color: Color(CustomColor.main_text_color),
                         fontSize: CustomDimen.text_size_medium,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
                 Positioned(
@@ -88,7 +88,7 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
                         fontFamily: 'Roboto',
                         color: item.getChgColor(),
                         fontSize: CustomDimen.text_size_large_16,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600),
                   )),
               Positioned(
                   right: 14,
@@ -111,7 +111,7 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
                         fontFamily: 'Roboto',
                         color: Color(CustomColor.main_text_color),
                         fontSize: CustomDimen.text_size_large_16,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600),
                   )),
               Positioned(
                   right: 123,

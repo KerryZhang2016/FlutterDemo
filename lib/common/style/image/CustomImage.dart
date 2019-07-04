@@ -13,4 +13,9 @@ class CustomImage {
   static const String region_us = 'assets/images/ic_region_us.png';
   static const String market_pre = 'assets/images/ic_market_pre.png';
   static const String market_after = 'assets/images/ic_market_after.png';
+  static const String market_group_expand = 'assets/images/ic_market_group_expand.png';
+  static const String market_sort_default = 'assets/images/ic_market_sort_default.png';
+  static const String market_sort_up = 'assets/images/ic_market_sort_up.png';
+  static const String market_sort_down = 'assets/images/ic_market_sort_down.png';
+
 }

@@ -22,7 +22,7 @@ class HomeState implements Cloneable<HomeState> {
   }
 }
 
-HomeState initState(Map<String, dynamic> args) {
+HomeState initHomeState(Map<String, dynamic> args) {
   // bottom navigation bar
   var tabTextList = [
     CustomText.home_markets,

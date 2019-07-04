@@ -6,6 +6,7 @@ import 'package:test_app/page/home_trade_page/page.dart';
 import 'package:test_app/page/home_user_page/page.dart';
 
 import 'package:test_app/page/home_page/bottom_navigation_component/component.dart';
+import 'package:test_app/utils/log_util.dart';
 import 'effect.dart';
 import 'reducer.dart';
 import 'state.dart';
@@ -14,7 +15,7 @@ import 'view.dart';
 class HomePage extends Page<HomeState, Map<String, dynamic>> {
   HomePage()
       : super(
-            initState: initState,
+            initState: initHomeState,
             effect: buildEffect(),
             reducer: buildReducer(),
             view: buildView,

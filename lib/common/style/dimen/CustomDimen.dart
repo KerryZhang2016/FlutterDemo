@@ -9,6 +9,7 @@ class CustomDimen {
   static const text_size_large_16 = 16.0;
   static const text_size_large_17 = 17.0;
   static const text_size_tall = 18.0;
+  static const text_size_tall_19 = 19.0;
   static const text_size_tall_23 = 23.0;
   static const text_size_huge = 30.0;
 

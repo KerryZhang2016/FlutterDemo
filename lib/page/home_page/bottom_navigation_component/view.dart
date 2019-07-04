@@ -20,7 +20,7 @@ Widget buildView(CustomBottomNavigationBarState state, Dispatch dispatch,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Divider(color: Color(0xFFE0E0E0), height: 0.6),
+            Divider(color: Color(CustomColor.divider_color), height: 0.6),
             Expanded(
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:test_app/common/lifecycle/app_lifecycle.dart';
 import 'package:test_app/utils/log_util.dart';
+import 'action.dart';
 import 'state.dart';
 
 Effect<MarketState> buildEffect() {
@@ -20,6 +22,17 @@ Effect<MarketState> buildEffect() {
 void _initState(Action action, Context<MarketState> ctx) async {
   LogUtil.loggerLevelI("Market Page _initState");
   subscribleAppStateChange(ctx);
+
+  final Object tickerProvider = ctx.stfState;
+  TabController tabController = TabController(length: 2, vsync: tickerProvider);
+  tabController.addListener(() {
+    if(tabController.indexIsChanging) {
+      ctx.state.pageController.animateToPage(tabController.index,
+          duration: Duration(milliseconds: 500), curve: Curves.ease);
+      ctx.dispatch(MarketActionCreator.pageIndexChange(tabController.index));
+    }
+  });
+  ctx.state.tabController = tabController;
 }
 
 void _didChangeDependencies(Action action, Context<MarketState> ctx) {

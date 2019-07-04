@@ -58,6 +58,6 @@ flutter:
       fonts:
         - asset: assets/fonts/roboto_regular.ttf
         - asset: assets/fonts/roboto_medium.ttf
-          weight: 500
-        - asset: assets/fonts/roboto_bold.ttf
           weight: 600
+        - asset: assets/fonts/roboto_bold.ttf
+          weight: 800

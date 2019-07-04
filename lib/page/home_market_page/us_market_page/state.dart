@@ -10,6 +10,6 @@ class USMarketState implements Cloneable<USMarketState> {
 }
 
 USMarketState initUSMarketState(Map<String, dynamic> args) {
-  LogUtil.loggerLevelD("USMarketPage initUSMarketState");
+  LogUtil.loggerLevelD("USMarket Page initUSMarketState");
   return USMarketState();
 }

@@ -12,4 +12,6 @@ class CustomColor {
 
   static const int item_normal_bg_color = 0xFFFFFFFF;
   static const int item_pressed_bg_color = 0xFFF7F7FA;
+
+  static const int divider_color = 0xFFE0E0E0;
 }

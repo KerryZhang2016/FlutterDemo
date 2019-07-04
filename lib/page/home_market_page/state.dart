@@ -1,10 +1,13 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:test_app/page/home_market_page/us_market_page/state.dart';
 import 'package:test_app/page/home_market_page/watchlist_page/state.dart';
 
 class MarketState implements Cloneable<MarketState> {
 
+  int currentIndex = 0;
+  TabController tabController;
   PageController pageController;
 
   WatchlistState watchlistState;
@@ -13,6 +16,8 @@ class MarketState implements Cloneable<MarketState> {
   @override
   MarketState clone() {
     return MarketState()
+      ..currentIndex = currentIndex
+      ..tabController = tabController
       ..pageController = pageController
       ..watchlistState = watchlistState
       ..usMarketState = usMarketState;
@@ -21,6 +26,7 @@ class MarketState implements Cloneable<MarketState> {
 
 MarketState initMarketState(String args) {
   return MarketState()
+    ..currentIndex = 0
     ..pageController = PageController()
     ..watchlistState = initWatchlistState(null)
     ..usMarketState = initUSMarketState(null);
