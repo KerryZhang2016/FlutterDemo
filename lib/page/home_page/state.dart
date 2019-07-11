@@ -9,10 +9,13 @@ import 'package:test_app/page/home_user_page/state.dart';
 
 import 'package:test_app/page/home_page/bottom_navigation_component/state.dart';
 
+import 'home_drawer/state.dart';
+
 class HomeState implements Cloneable<HomeState> {
 
   bool drawerEnable = true;
   CustomBottomNavigationBarState customBottomNavigationBarState;
+  HomeDrawerState homeDrawerState;
 
   MarketState marketState;
 
@@ -21,6 +24,7 @@ class HomeState implements Cloneable<HomeState> {
     return HomeState()
       ..drawerEnable = drawerEnable
       ..customBottomNavigationBarState = customBottomNavigationBarState
+      ..homeDrawerState = homeDrawerState
       ..marketState = marketState;
   }
 }
@@ -50,6 +54,7 @@ HomeState initHomeState(Map<String, dynamic> args) {
     ..drawerEnable = true
     ..customBottomNavigationBarState = initCustomBottomNavigationBarState(
         tabTextList, tabIconList, tabIconSelectList)
+    ..homeDrawerState = initHomeDrawerState(null)
     ..marketState = initMarketState(null);
 }
 
@@ -63,6 +68,18 @@ class CustomBottomNavigationBarConnector
   @override
   void set(HomeState state, CustomBottomNavigationBarState subState) {
     state.customBottomNavigationBarState = subState;
+  }
+}
+
+class HomeDrawerConnector extends ConnOp<HomeState, HomeDrawerState> {
+  @override
+  HomeDrawerState get(HomeState state) {
+    return state.homeDrawerState;
+  }
+
+  @override
+  void set(HomeState state, HomeDrawerState subState) {
+    state.homeDrawerState = subState;
   }
 }
 

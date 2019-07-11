@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/page/home_discover_page/page.dart';
 import 'package:test_app/page/home_market_page/page.dart';
+import 'package:test_app/page/home_page/home_drawer/component.dart';
 import 'package:test_app/page/home_trade_page/page.dart';
 import 'package:test_app/page/home_user_page/page.dart';
 
@@ -23,6 +24,7 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
                 adapter: null,
                 slots: <String, Dependent<HomeState>>{
                   'customBottomNavigationBar': CustomBottomNavigationBarConnector() + CustomBottomNavigationBarComponent(),
+                  "homeDrawer": HomeDrawerConnector() + HomeDrawerComponent(),
                   'market': MarketConnector() + MarketPage(),
                   'discover': DiscoverConnector() + DiscoverPage(),
                   'trade': TradeConnector() + TradePage(),
