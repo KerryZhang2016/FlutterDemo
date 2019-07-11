@@ -20,4 +20,7 @@ class CustomImage {
   static const String market_edt_watchlist = 'assets/images/ic_market_edt_watchlist.png';
   static const String market_refresh = 'assets/images/ic_market_refresh.png';
   static const String market_search = 'assets/images/ic_market_search.png';
+  static const String market_manage_group = 'assets/images/ic_market_manage_group.png';
+  static const String market_group_all = 'assets/images/ic_market_group_all.png';
+  static const String market_group_position = 'assets/images/ic_market_group_position.png';
 }

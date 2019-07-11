@@ -29,9 +29,7 @@ void _onRefresh(Action action, Context<WatchlistState> ctx) async {
   } catch (e) {
     LogUtil.loggerLevelE(e);
   }
-  Future.delayed(Duration(seconds: 3), () {
-    ctx.dispatch(MarketActionCreator.progress(false, 0));
-  });
+  ctx.dispatch(MarketActionCreator.progress(false, 0));
   (action.payload as Function())();
 }
 
@@ -47,9 +45,7 @@ void _onRefreshWatchlist(Action action, Context<WatchlistState> ctx) async {
   } catch (e) {
     LogUtil.loggerLevelE(e);
   }
-  Future.delayed(Duration(seconds: 3), () {
-    ctx.dispatch(MarketActionCreator.progress(false, 0));
-  });
+  ctx.dispatch(MarketActionCreator.progress(false, 0));
 }
 
 void _initState(Action action, Context<WatchlistState> ctx) async {

@@ -31,19 +31,22 @@ Widget buildView(
                       fontWeight: FontWeight.w800),
                 ),
                 Positioned(
-                  left: 10.0,
-                  child: Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: Image(
-                          image: AssetImage(CustomImage.market_edt_watchlist),
-                          width: 17,
-                          height: 18)),
+                  left: 5.0,
+                  child: GestureDetector(
+                    child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Image(
+                            image: AssetImage(CustomImage.market_edt_watchlist),
+                            width: 17,
+                            height: 18)),
+                    onTap: () => Scaffold.of(viewService.context).openDrawer(),
+                  ),
                 ),
                 Stack(
                   alignment: Alignment.centerRight,
                   children: <Widget>[
                     Positioned(
-                        right: 10.0,
+                        right: 5.0,
                         child: CircleProgress(
                           progressing: state.progressing,
                           handleTap: () => {
@@ -52,9 +55,9 @@ Widget buildView(
                               },
                         )),
                     Positioned(
-                      right: 43.0,
+                      right: 38.0,
                       child: Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Image(
                             image: AssetImage(CustomImage.market_search),
                             width: 16.0,

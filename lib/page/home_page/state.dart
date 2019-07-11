@@ -10,6 +10,8 @@ import 'package:test_app/page/home_user_page/state.dart';
 import 'package:test_app/page/home_page/bottom_navigation_component/state.dart';
 
 class HomeState implements Cloneable<HomeState> {
+
+  bool drawerEnable = true;
   CustomBottomNavigationBarState customBottomNavigationBarState;
 
   MarketState marketState;
@@ -17,6 +19,7 @@ class HomeState implements Cloneable<HomeState> {
   @override
   HomeState clone() {
     return HomeState()
+      ..drawerEnable = drawerEnable
       ..customBottomNavigationBarState = customBottomNavigationBarState
       ..marketState = marketState;
   }
@@ -44,6 +47,7 @@ HomeState initHomeState(Map<String, dynamic> args) {
   ];
 
   return HomeState()
+    ..drawerEnable = true
     ..customBottomNavigationBarState = initCustomBottomNavigationBarState(
         tabTextList, tabIconList, tabIconSelectList)
     ..marketState = initMarketState(null);

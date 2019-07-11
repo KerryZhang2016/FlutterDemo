@@ -20,7 +20,7 @@ class CircleProgress extends StatelessWidget {
         if (!progressing) { handleTap() }
       },
       child: Container(
-          padding: EdgeInsets.all(5.0),
+          padding: EdgeInsets.all(10.0),
           child: progressing
               ? SizedBox(
                   child: const CircularProgressIndicator(
