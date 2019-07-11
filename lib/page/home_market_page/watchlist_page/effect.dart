@@ -5,6 +5,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:test_app/http/http.dart';
 import 'package:test_app/http/model/Watchlist.dart';
 import 'package:test_app/utils/log_util.dart';
+import '../action.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -17,6 +18,7 @@ Effect<WatchlistState> buildEffect() {
 }
 
 void _onRefresh(Action action, Context<WatchlistState> ctx) async {
+  ctx.dispatch(MarketActionCreator.progress(true, 0));
   try {
     Response response = await dio.get(watchlistPath,
         queryParameters: {"group": "0", "market": "US", "lite": false});
@@ -27,10 +29,14 @@ void _onRefresh(Action action, Context<WatchlistState> ctx) async {
   } catch (e) {
     LogUtil.loggerLevelE(e);
   }
+  Future.delayed(Duration(seconds: 3), () {
+    ctx.dispatch(MarketActionCreator.progress(false, 0));
+  });
   (action.payload as Function())();
 }
 
 void _onRefreshWatchlist(Action action, Context<WatchlistState> ctx) async {
+  ctx.dispatch(MarketActionCreator.progress(true, 0));
   try {
     Response response = await dio.get(watchlistPath,
         queryParameters: {"group": "0", "market": "US", "lite": false});
@@ -41,6 +47,9 @@ void _onRefreshWatchlist(Action action, Context<WatchlistState> ctx) async {
   } catch (e) {
     LogUtil.loggerLevelE(e);
   }
+  Future.delayed(Duration(seconds: 3), () {
+    ctx.dispatch(MarketActionCreator.progress(false, 0));
+  });
 }
 
 void _initState(Action action, Context<WatchlistState> ctx) async {

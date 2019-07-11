@@ -17,5 +17,7 @@ class CustomImage {
   static const String market_sort_default = 'assets/images/ic_market_sort_default.png';
   static const String market_sort_up = 'assets/images/ic_market_sort_up.png';
   static const String market_sort_down = 'assets/images/ic_market_sort_down.png';
-
+  static const String market_edt_watchlist = 'assets/images/ic_market_edt_watchlist.png';
+  static const String market_refresh = 'assets/images/ic_market_refresh.png';
+  static const String market_search = 'assets/images/ic_market_search.png';
 }

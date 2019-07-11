@@ -42,7 +42,6 @@ class _TapBoxState extends State<TapBox> {
 
   Widget build(BuildContext context) {
     return GestureDetector(
-
       onTapDown: _handleTapDown,
       onTapUp: _handleTapUp,
       onTapCancel: _handleTapCancel,

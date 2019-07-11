@@ -2,6 +2,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:test_app/common/style/color/CustomColor.dart';
 import 'package:test_app/common/style/dimen/CustomDimen.dart';
+import 'package:test_app/common/style/image/CustomImage.dart';
+import 'package:test_app/page/home_market_page/watchlist_page/action.dart';
+import 'package:test_app/widget/CircleProgress.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -13,19 +16,55 @@ Widget buildView(
     child: Column(
       children: <Widget>[
         Container(
-          height: 42,
-          color: Colors.white,
-          child: Center(
-            child: Text(
-              'Markets',
-              style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Color(CustomColor.main_text_color),
-                  fontSize: CustomDimen.text_size_tall_23,
-                  fontWeight: FontWeight.w800),
-            ),
-          ),
-        ),
+            height: 42,
+            width: double.infinity,
+            color: Colors.white,
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Text(
+                  'Markets',
+                  style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: Color(CustomColor.main_text_color),
+                      fontSize: CustomDimen.text_size_tall_23,
+                      fontWeight: FontWeight.w800),
+                ),
+                Positioned(
+                  left: 10.0,
+                  child: Padding(
+                      padding: EdgeInsets.all(5.0),
+                      child: Image(
+                          image: AssetImage(CustomImage.market_edt_watchlist),
+                          width: 17,
+                          height: 18)),
+                ),
+                Stack(
+                  alignment: Alignment.centerRight,
+                  children: <Widget>[
+                    Positioned(
+                        right: 10.0,
+                        child: CircleProgress(
+                          progressing: state.progressing,
+                          handleTap: () => {
+                                dispatch(
+                                    WatchlistActionCreator.onRefreshWatchlist())
+                              },
+                        )),
+                    Positioned(
+                      right: 43.0,
+                      child: Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: Image(
+                            image: AssetImage(CustomImage.market_search),
+                            width: 16.0,
+                            height: 18.0,
+                          )),
+                    ),
+                  ],
+                ),
+              ],
+            )),
         TabBar(
           tabs: <Widget>[
             _buildTabItem('Watchlist', state.currentIndex == 0),

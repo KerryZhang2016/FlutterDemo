@@ -7,6 +7,7 @@ import 'package:test_app/page/home_market_page/watchlist_page/state.dart';
 class MarketState implements Cloneable<MarketState> {
 
   int currentIndex = 0;
+  bool progressing = false;
   TabController tabController;
   PageController pageController;
 
@@ -17,6 +18,7 @@ class MarketState implements Cloneable<MarketState> {
   MarketState clone() {
     return MarketState()
       ..currentIndex = currentIndex
+      ..progressing = progressing
       ..tabController = tabController
       ..pageController = pageController
       ..watchlistState = watchlistState
@@ -27,6 +29,7 @@ class MarketState implements Cloneable<MarketState> {
 MarketState initMarketState(String args) {
   return MarketState()
     ..currentIndex = 0
+    ..progressing = false
     ..pageController = PageController()
     ..watchlistState = initWatchlistState(null)
     ..usMarketState = initUSMarketState(null);
