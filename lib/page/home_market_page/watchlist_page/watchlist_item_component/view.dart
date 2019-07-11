@@ -51,27 +51,33 @@ Widget _buildMarketListItem(WatchlistItem item, Dispatch dispatch) {
               children: <Widget>[
                 Positioned(
                   top: 11,
-                  child: Text(
-                    item.symbol,
-                    maxLines: 1,
-                    style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Color(CustomColor.main_text_color),
-                        fontSize: CustomDimen.text_size_medium,
-                        fontWeight: FontWeight.w600),
-                  ),
+                  child: SizedBox(
+                    width: 150,
+                    child: Text(
+                      item.symbol,
+                      maxLines: 1,
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Color(CustomColor.main_text_color),
+                          fontSize: CustomDimen.text_size_medium,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
                 ),
                 Positioned(
                   top: 33,
-                  child: Text(
-                    item.nameCN,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Color(CustomColor.secondary_text_color),
-                        fontSize: CustomDimen.text_size_micro),
-                  ),
+                  child: SizedBox(
+                    width: 150,
+                    child: Text(
+                      item.nameCN,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,// 溢出显示...
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          color: Color(CustomColor.secondary_text_color),
+                          fontSize: CustomDimen.text_size_micro),
+                    ),
+                  )
                 )
               ],
             )),
