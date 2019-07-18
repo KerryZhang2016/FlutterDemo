@@ -23,4 +23,5 @@ class CustomImage {
   static const String market_manage_group = 'assets/images/ic_market_manage_group.png';
   static const String market_group_all = 'assets/images/ic_market_group_all.png';
   static const String market_group_position = 'assets/images/ic_market_group_position.png';
+  static const String market_watchlist_empty_add = 'assets/images/ic_market_watchlist_empty_add.png';
 }

@@ -4,8 +4,10 @@ import 'package:test_app/http/model/Watchlist.dart';
 enum WatchlistAction {
   onRefresh,// 下拉刷新
   onRefreshWatchlist,// 刷新自选
+
   refreshWatchlist,// 更新自选数据
   updateSort,// 更新排序状态
+  updateGroup,// 更新分组
 }
 
 class WatchlistActionCreator {
@@ -23,5 +25,9 @@ class WatchlistActionCreator {
 
   static Action updateSort(int sortIndex) {
     return Action(WatchlistAction.updateSort, payload: sortIndex);
+  }
+
+  static Action updateGroup(int group) {
+    return Action(WatchlistAction.updateGroup, payload: group);
   }
 }

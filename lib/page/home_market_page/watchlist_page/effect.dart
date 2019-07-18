@@ -18,6 +18,11 @@ Effect<WatchlistState> buildEffect() {
 }
 
 void _onRefresh(Action action, Context<WatchlistState> ctx) async {
+  if (ctx.state.currentGroup != 0) {// 其他分组
+    ctx.dispatch(WatchlistActionCreator.refreshWatchlist([]));
+    return;
+  }
+
   ctx.dispatch(MarketActionCreator.progress(true, 0));
   try {
     Response response = await dio.get(watchlistPath,
@@ -35,6 +40,11 @@ void _onRefresh(Action action, Context<WatchlistState> ctx) async {
 }
 
 void _onRefreshWatchlist(Action action, Context<WatchlistState> ctx) async {
+  if (ctx.state.currentGroup != 0) {// 其他分组
+    ctx.dispatch(WatchlistActionCreator.refreshWatchlist([]));
+    return;
+  }
+
   ctx.dispatch(MarketActionCreator.progress(true, 0));
   try {
     Response response = await dio.get(watchlistPath,

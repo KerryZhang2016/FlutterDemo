@@ -9,6 +9,7 @@ Reducer<WatchlistState> buildReducer() {
     <Object, Reducer<WatchlistState>>{
       WatchlistAction.refreshWatchlist: _refreshWatchlist,
       WatchlistAction.updateSort: _updateSort,
+      WatchlistAction.updateGroup: _updateGroup,
     },
   );
 }
@@ -32,3 +33,10 @@ WatchlistState _updateSort(WatchlistState state, Action action) {
   }
   return watchlistState;
 }
+
+WatchlistState _updateGroup(WatchlistState state, Action action) {
+  WatchlistState watchlistState = state.clone()
+    ..currentGroup = action.payload;
+  return watchlistState;
+}
+
