@@ -16,7 +16,8 @@ class CircleProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {
+        behavior: HitTestBehavior.translucent,
+        onTap: () => {
         if (!progressing) { handleTap() }
       },
       child: Container(

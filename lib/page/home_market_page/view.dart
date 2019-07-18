@@ -33,6 +33,7 @@ Widget buildView(
                 Positioned(
                   left: 5.0,
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     child: Container(
                         padding: EdgeInsets.all(10.0),
                         child: Image(

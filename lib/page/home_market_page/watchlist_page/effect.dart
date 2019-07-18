@@ -24,6 +24,7 @@ void _onRefresh(Action action, Context<WatchlistState> ctx) async {
         queryParameters: {"group": "0", "market": "US", "lite": false});
     WatchlistResponse watchlistResponse =
         WatchlistResponse.fromJson(json.decode(response.toString()));
+    watchlistResponse.updateIndex();
     LogUtil.loggerLevelD(watchlistResponse.items.toString());
     ctx.dispatch(WatchlistActionCreator.refreshWatchlist(watchlistResponse.items));
   } catch (e) {
@@ -40,6 +41,7 @@ void _onRefreshWatchlist(Action action, Context<WatchlistState> ctx) async {
         queryParameters: {"group": "0", "market": "US", "lite": false});
     WatchlistResponse watchlistResponse =
         WatchlistResponse.fromJson(json.decode(response.toString()));
+    watchlistResponse.updateIndex();
     LogUtil.loggerLevelD(watchlistResponse.items.toString());
     ctx.dispatch(WatchlistActionCreator.refreshWatchlist(watchlistResponse.items));
   } catch (e) {

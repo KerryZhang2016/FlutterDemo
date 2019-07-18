@@ -41,6 +41,7 @@ class _TapBoxState extends State<TapBox> with SingleTickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     return GestureDetector(
+        behavior: HitTestBehavior.translucent,
         onTap: widget.onTap,
         onTapDown: (d) => _animationController.forward(),
         onTapUp: (d) => _prepareToIdle(),

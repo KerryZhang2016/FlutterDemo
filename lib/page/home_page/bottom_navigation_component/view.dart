@@ -49,6 +49,7 @@ Widget _buildBottomItem(
     return isInk
         ? InkResponse(child: child, onTap: onTap)
         : GestureDetector(
+            behavior: HitTestBehavior.translucent,
             child: Container(
                 child: child,
                 color: Platform.isIOS ? Colors.transparent : Colors.white),

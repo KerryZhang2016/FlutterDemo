@@ -18,6 +18,14 @@ class WatchlistResponse {
   WatchlistResponse(
       this.ret, this.market, this.serverTime, this.group, this.items);
 
+  void updateIndex() {
+    if (items != null) {
+      for (var i = 0; i < items.length; i++) {
+        items[i].index = i;
+      }
+    }
+  }
+
   @override
   String toString() {
     return 'WatchlistResponse{ret: $ret, market: $market, serverTime: $serverTime, group: $group, items: $items}';
@@ -43,6 +51,9 @@ class WatchlistItem {
   int timestamp;
   HourTrading hourTrading;
 
+  @JsonKey(ignore: true)
+  int index;// 默认排序
+
   WatchlistItem(
       this.symbol,
       this.nameCN,
@@ -55,6 +66,8 @@ class WatchlistItem {
       this.auction,
       this.timestamp,
       this.hourTrading);
+
+  double getChg() => latestPrice / preClose - 1;
 
   String getChgText() {
     var ratio = latestPrice / preClose - 1;
