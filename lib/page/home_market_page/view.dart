@@ -57,13 +57,17 @@ Widget buildView(
                         )),
                     Positioned(
                       right: 38.0,
-                      child: Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Image(
-                            image: AssetImage(CustomImage.market_search),
-                            width: 16.0,
-                            height: 18.0,
-                          )),
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () => Navigator.pushNamed(viewService.context, "stockDetail"),
+                        child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Image(
+                              image: AssetImage(CustomImage.market_search),
+                              width: 16.0,
+                              height: 18.0,
+                            )),
+                      ),
                     ),
                   ],
                 ),

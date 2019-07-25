@@ -4,12 +4,14 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/services.dart';
 import 'package:test_app/page/home_page/page.dart';
 import 'package:test_app/http/http.dart';
+import 'package:test_app/page/market/market_stock_detail/page.dart';
 
 Widget createApp() {
   final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
     PageRoutes(
       pages: <String, Page<Object, dynamic>>{
-        "home": HomePage()
+        "home": HomePage(),
+        "stockDetail": StockDetailPage(),
       },
     ),
   ]);
